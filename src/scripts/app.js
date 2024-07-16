@@ -1,11 +1,13 @@
-const navLinks = document.querySelectorAll("li a");
+document.addEventListener("DOMContentLoaded", function () {
+  const currentUrl = window.location.pathname.split("/").pop();
 
-const currentPath = window.location.pathname;
+  const menuItems = document.querySelectorAll("ul li a");
 
-navLinks.forEach((link) => {
-  if (link.getAttribute("href") === `.${currentPath}`) {
-    link.parentElement.classList.add("active");
-  }
+  menuItems.forEach(function (item) {
+    if (item.getAttribute("href") === currentUrl) {
+      item.parentElement.classList.add("active");
+    }
+  });
 });
 
 function readmore() {
@@ -23,3 +25,4 @@ function readmore() {
 }
 
 document.getElementById("readmorebtn").addEventListener("click", readmore);
+
